@@ -1,27 +1,4 @@
-# # Stage 1: Build the native image
-# FROM ghcr.io/graalvm/native-image-community:25 AS builder
-
-# # Install build dependencies (Native Image is already included in the BUILDER image)
-# RUN microdnf install -y unzip zip findutils
-
-# # Set working directory
-# WORKDIR /app
-
-# # Copy Gradle wrapper and build files
-# COPY gradlew .
-# COPY gradle gradle
-# COPY build.gradle.kts settings.gradle.kts ./
-
-# # Copy source code
-# COPY src src
-
-# # Build the project and generate native image
-# # Disable Gradle daemon for both commands
-# RUN ./gradlew --no-daemon build -x test
-# RUN ./gradlew --no-daemon nativeCompile
-
-
-# Stage 1: Build the native image
+# Stage 1: Build the native image (Native image is already included in this image)
 FROM ghcr.io/graalvm/native-image-community:25 AS builder
 
 # Install build dependencies and clean in one layer
