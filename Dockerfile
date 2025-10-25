@@ -51,7 +51,7 @@ RUN ./gradlew --no-daemon build nativeCompile -x test && \
 
 
 # Stage 2: Create runtime image
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y curl ca-certificates && rm -rf /var/lib/apt/lists/*
 
